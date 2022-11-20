@@ -1,8 +1,11 @@
 import express from 'express'
 import morgan from 'morgan'
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 
 import appRoutes from './routes/todoApp.js'
+
+dotenv.config()
 
 const port = process.env.PORT || 8000
 
@@ -31,7 +34,7 @@ app.use((error, req, res, next) => {
 })
 
 async function main() {
-    await mongoose.connect("mongodb+srv://sir_sanctified:s4nct1f13d@cluster0.dkrsxw2.mongodb.net/?retryWrites=true&w=majority")
+    await mongoose.connect({process.env.DBURL}
     app.listen(port, () => {
         console.log(`Server is running on port ${port}`)
     })
