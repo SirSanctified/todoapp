@@ -34,7 +34,7 @@ app.use((error, req, res, next) => {
 })
 
 async function main() {
-    await mongoose.connect({process.env.DBURL}
+    await mongoose.connect(process.env.DBURL)
     app.listen(port, () => {
         console.log(`Server is running on port ${port}`)
     })
