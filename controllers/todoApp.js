@@ -19,7 +19,7 @@ export async function createTodo(req, res, next) {
         res.json(todo)
 
     } catch (error) {
-        res.status(200).json({
+        res.status(500).json({
             error: error.message
         })
     }
